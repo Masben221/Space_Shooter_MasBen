@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28351b15ba85eb645bebbbcc4fcdb178, type: 3}
+  m_Name: primary_base_01_fazer
+  m_EditorClassIdentifier: 
+  m_Mode: 0
+  m_ProjectilePrefab: {fileID: 1343612950657406381, guid: a58f35fdc84bf98448b6b4cd20547680,
+    type: 3}
+  m_RateOfFire: 0.2
+  m_EnergyUsage: 1
+  m_AmmoUsage: 0
+  m_LaunchSFX: {fileID: 8300000, guid: 70b3256ee10a84d4185919ea81e2521a, type: 3}
