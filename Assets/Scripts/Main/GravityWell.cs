@@ -11,7 +11,7 @@ namespace SpaceShooter
         [SerializeField] private float m_Force;
         [SerializeField] private float m_Radius;
 
-        private void OnTriggerStay2D(Collider2D collision)
+        private void OnTriggerStay2D(Collider2D collision) // нахождение в CircleCollider2D 
         {
             //если у колизии нет Rigidbody 
             if (collision.attachedRigidbody == null) return;
@@ -27,10 +27,10 @@ namespace SpaceShooter
         }
 
         //срабатывает при изменении значений
-        #if UNITY_EDITOR
+        #if UNITY_EDITOR // чтобы не было ошибки
         private void OnValidate()
         {
-            GetComponent<CircleCollider2D>().radius = m_Radius;
+            GetComponent<CircleCollider2D>().radius = m_Radius;// задание радиуса CircleCollider2D
         }
         #endif
     }

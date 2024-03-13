@@ -27,6 +27,7 @@ namespace SpaceShooter
                     m_Text.text = m_LastCount.ToString();
                 }
             }
+            else return;
         }
     }
 }

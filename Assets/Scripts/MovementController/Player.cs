@@ -13,7 +13,9 @@ namespace SpaceShooter
         [SerializeField] private SpaceShip m_Ship; //Ссылка на корабль игрока.
         public SpaceShip ActiveShip => m_Ship; //Ссылка на корабль игрока.
 
-        [SerializeField] private GameObject m_PlayerShipPrefab; //Префаб корабля игрока.
+        private SpaceShip newPlayerShip;
+
+        [SerializeField] private SpaceShip m_PlayerShipPrefab; //Префаб корабля игрока.
 
         [SerializeField] private CameraController m_CameraController;
 
@@ -58,7 +60,7 @@ namespace SpaceShooter
 
         private void Start()
         {
-            Respawn();
+           Respawn();
         }
         private void Update()
         {
@@ -104,7 +106,11 @@ namespace SpaceShooter
         /// </summary>
         private void Respawn()
         {
-            var newPlayerShip = Instantiate(LevelSequenceController.PlayerShip);
+            if (LevelSequenceController.PlayerShip == null)
+            {
+                newPlayerShip = Instantiate(m_PlayerShipPrefab);
+            }
+            else  newPlayerShip = Instantiate(LevelSequenceController.PlayerShip);
             newPlayerShip.transform.position = m_RespawnPoint.position;
             m_Ship = newPlayerShip.GetComponent<SpaceShip>();
 

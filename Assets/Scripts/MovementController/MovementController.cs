@@ -43,15 +43,15 @@ namespace SpaceShooter
             {
                 m_MobileJoystick.gameObject.SetActive(true);
 
-                m_MobileFirePrimary.gameObject.SetActive(true); 
+                m_MobileFirePrimary.gameObject.SetActive(true);
                 m_MobileFireSecondary.gameObject.SetActive(true);
             }
             if (m_ControlMode == ControlMode.Keyboard)
             {
                 m_MobileJoystick.gameObject.SetActive(false);
 
-                m_MobileFirePrimary.gameObject.SetActive(false);
-                m_MobileFireSecondary.gameObject.SetActive(false);               
+               // m_MobileFirePrimary.gameObject.SetActive(false);
+               // m_MobileFireSecondary.gameObject.SetActive(false);
             }
         }
 
@@ -63,17 +63,15 @@ namespace SpaceShooter
                 ControlMobile();
 
             if (m_ControlMode == ControlMode.Keyboard)
+            {               
                 ControlKeyboard();
-            
-            if (m_ControlMode == ControlMode.Keyboard_and_Mobile) 
+            }
+
+
+            if (m_ControlMode == ControlMode.Keyboard_and_Mobile)
             {
-               if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow) 
-                                                    || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) 
-                                                    || Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.F) 
-                                                    || Input.GetKey(KeyCode.LeftShift)) 
-                    ControlKeyboard();
-               else
-                    ControlMobile();
+                ControlMobile();
+                ControlKeyboard();
             }
 
             m_TargetShip.ThrustControl = thrust;
@@ -113,17 +111,17 @@ namespace SpaceShooter
         }
         private void ControlMobile()
         {
-            /* Vector3 dir = m_MobileJoystick.Value;
+            /*Vector3 dir = m_MobileJoystick.Value;
 
-             var dot = Vector2.Dot(dir, m_TargetShip.transform.up);
-             var dot2 = Vector2.Dot(dir, m_TargetShip.transform.right);
+           var dot = Vector2.Dot(dir, m_TargetShip.transform.up);
+           var dot2 = Vector2.Dot(dir, m_TargetShip.transform.right);
 
-             thrust = Mathf.Max(0, dot);
-             torgue = -dot2;*/
+           thrust = dot;
+           torgue = -dot2;*/
 
-             var dir = m_MobileJoystick.Value;
-             thrust = dir.y;
-             torgue = -dir.x;
+            var dir = m_MobileJoystick.Value;
+            thrust = dir.y;
+            torgue = -dir.x;
 
             if (m_MobileFirePrimary.IsHold == true)
             {
@@ -138,8 +136,9 @@ namespace SpaceShooter
         }
         private void ControlKeyboard()
         {
-            thrust = 0;
-            torgue = 0;
+            var dir = m_MobileJoystick.Value;
+            thrust = dir.y; //  thrust = 0;
+            torgue = -dir.x; // torgue = 0;
 
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
                 thrust = 1.0f;
@@ -169,12 +168,12 @@ namespace SpaceShooter
 
                 m_TargetShip.IsShieldHold = true;
             }
-           
+
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
                 m_TargetShip.IsAcceleration = true;
             }
-                        
+
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
                 m_TargetShip.IsAcceleration = false;

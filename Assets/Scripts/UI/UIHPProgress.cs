@@ -24,6 +24,7 @@ namespace SpaceShooter
         public void UpdateHPProgress(int HPCount)
         {
             m_HPProgressBar.fillAmount = HPCount * m_FillAmountStep;
+            //m_HPProgressBar.color = Color.Lerp(Color.red, Color.green, m_HPProgressBar.fillAmount);
         }
 
         public void UpdateShip(SpaceShip spaceShip)

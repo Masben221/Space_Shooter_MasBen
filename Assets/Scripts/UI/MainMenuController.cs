@@ -6,6 +6,7 @@ namespace SpaceShooter
     public class MainMenuController : SingletonBase<MainMenuController>
     {
         [SerializeField] private SpaceShip m_DefaultSpaceShip;
+        //public SpaceShip DefaultSpaceShip => m_DefaultSpaceShip; // for testing
 
         [SerializeField] private GameObject m_EpisodeSelection;
 
