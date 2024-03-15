@@ -19,6 +19,8 @@ namespace SpaceShooter
 
         [SerializeField] private CameraController m_CameraController;
 
+        public CameraController CameraController => m_CameraController;
+
         [SerializeField] private MovementController m_MovementController;
 
         [SerializeField] private Transform m_RespawnPoint;

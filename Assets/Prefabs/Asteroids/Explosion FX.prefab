@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584868898657609541}
   - component: {fileID: -8365902975148566504}
+  - component: {fileID: 443315658215909539}
   m_Layer: 0
   m_Name: Explosion FX
   m_TagString: Untagged
@@ -47,6 +48,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LifeTime: 2
+--- !u!114 &443315658215909539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276602284000565603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 537198d9eb25dbd4ea6f0309535ecf66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeAmount: 5
 --- !u!1 &5072206834739271312
 GameObject:
   m_ObjectHideFlags: 0

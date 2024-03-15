@@ -57,7 +57,9 @@ namespace SpaceShooter
 
             CalculateLevelStatistics();
 
+            ResultPanelController.Instance.gameObject.SetActive(true);
             ResultPanelController.Instance.ShowResults(LevelStatistics, success);
+
         }
 
         //Переход на другой  уровень если он есть, а иначе завершение эпизода и выход в главное меню.

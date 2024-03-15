@@ -28,7 +28,7 @@ namespace SpaceShooter
 
         public void ShowResults(PlayerStatistics levelResults, bool success)
         {
-            gameObject.SetActive(true);
+            //gameObject.SetActive(true);
 
             m_Success = success;
 

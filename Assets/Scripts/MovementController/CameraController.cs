@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 namespace SpaceShooter
@@ -9,7 +8,9 @@ namespace SpaceShooter
     /// </summary>
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] private Camera m_Camera; //Основная камера
+        [SerializeField] private CinemachineVirtualCamera m_Camera; //Основная камера
+        public CinemachineVirtualCamera Camera => m_Camera;
+
         [SerializeField] private Camera m_MiniMapCamera; //Камера миникарты.
         [SerializeField] private Transform m_Target; //Цель - корабль игрока
         /// <summary>
@@ -58,11 +59,11 @@ namespace SpaceShooter
             //Зум камеры в зависимости от движения.
             if (m_Target.gameObject.transform.root.GetComponent<SpaceShip>().ThrustControl == 0)
             {
-                m_Camera.orthographicSize = Mathf.Lerp(m_Camera.orthographicSize, m_minZoomSize, Time.deltaTime * m_ZoomSpeed);
+                m_Camera.m_Lens.OrthographicSize = Mathf.Lerp(m_Camera.m_Lens.OrthographicSize, m_minZoomSize, Time.deltaTime * m_ZoomSpeed);
             }
             else
             {
-                m_Camera.orthographicSize = Mathf.Lerp(m_Camera.orthographicSize, m_maxZoomSize, Time.deltaTime * m_ZoomSpeed);
+                m_Camera.m_Lens.OrthographicSize = Mathf.Lerp(m_Camera.m_Lens.OrthographicSize, m_maxZoomSize, Time.deltaTime * m_ZoomSpeed);
             }
 
         }
